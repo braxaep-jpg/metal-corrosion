@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մետաղների կոռոզիա</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Մետաղների կոռոզիա</h1>
+        <p>Կարճ ներկայացում կոռոզիայի պատմության և օրինակների մասին</p>
+    </header>
+
+    <main>
+        <section class="history">
+            <h2>Պատմություն</h2>
+            <p>
+                Մետաղների կոռոզիան ուսումնասիրել են դեռևս 18-րդ դարում, երբ հայտնաբերվել է, որ երկաթը օդում և ջրում արագ է ռжавանում։ 
+                Հետագայում գիտնականները պարզեցին, որ կոռոզիան քիմիական ու էլեկտրոլիտիկ գործընթացների հետևանք է, և այն կարող է
+                կանխարգելվել տարբեր պաշտպանիչ միջոցներով՝ ներկեր, օքսիդային շերտեր և աղաթթվային լուծույթներ։
+            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Rusted_metal.jpg" alt="Ռжавացող երկաթ" class="image">
+        </section>
+
+        <section class="examples">
+            <h2>Օրինակներ և փաստեր</h2>
+            <div class="example-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Patina_on_copper.jpg" alt="Մետաղի պատինա">
+                <p><strong>Կապար․</strong> Կապարի վրա առաջանում է կանաչ պատինա, որը պաշտպանում է մետաղը հետագա կոռոզիայից։</p>
+            </div>
+            <div class="example-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Aluminium_oxide.jpg" alt="Ալյումինի օքսիդացում">
+                <p><strong>Ալյումին․</strong> Արտաքին օքսիդային շերտը արագ ձևավորվում է, ինչը պաշտպանում է մետաղը հետագա կոռոզիայից։</p>
+            </div>
+            <div class="example-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Rusted_metal.jpg" alt="Ռжавություն երկաթի վրա">
+                <p><strong>Երկաթ․</strong> Եղանակի ազդեցությամբ առաջանում է Fe₂O₃ ռжавություն՝ վառ օրինակ հին երկաթե կառուցվածքների վրա։</p>
+            </div>
+        </section>
+
+        <section class="qr-container">
+            <h2>Սքանավորեք QR կոդը՝ բացելու համար կայքը</h2>
+            <img id="qr-code" src="" alt="QR Code">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Մետաղների կոռոզիա</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+        const qrCodeImg = document.getElementById('qr-code');
+        QRCode.toDataURL(window.location.href)
+            .then(url => { qrCodeImg.src = url; })
+            .catch(err => console.error(err));
+    </script>
+</body>
+</html>
