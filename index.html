@@ -6,114 +6,127 @@
 <title>Մետաղների Կոռոզիա</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    /* Общий стиль */
-    body {
-        margin: 0;
-        font-family: 'Roboto', Arial, sans-serif;
-        background: linear-gradient(to bottom, #e0eaf1, #cfd8e3);
-        color: #333;
-        line-height: 1.6;
-    }
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0eaf1, #cfd8e3);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-    header {
-        background-color: #d9e8f5;
-        padding: 25px 15px;
-        text-align: center;
-        border-bottom: 3px solid #a0c4d1;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-    header h1 {
-        margin: 0;
-        color: #2e5c6e;
-        font-size: 28px;
-    }
+header {
+    background-color: #d9e8f5;
+    padding: 30px 15px;
+    text-align: center;
+    border-bottom: 3px solid #a0c4d1;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+header h1 {
+    margin: 0;
+    color: #2e5c6e;
+    font-size: 32px;
+    animation: fadeDown 1s ease-out;
+}
 
-    main {
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 0 15px;
-    }
+/* Анимации */
+@keyframes fadeIn {
+    0% {opacity:0; transform: translateY(20px);}
+    100% {opacity:1; transform: translateY(0);}
+}
+@keyframes fadeDown {
+    0% {opacity:0; transform: translateY(-20px);}
+    100% {opacity:1; transform: translateY(0);}
+}
 
-    section {
-        margin-bottom: 50px;
-        padding: 15px;
-        background-color: rgba(234, 240, 235, 0.9);
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-    }
-    section:hover {
-        transform: translateY(-3px);
-    }
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
 
-    section h2 {
-        color: #3a7d44;
-        border-bottom: 2px solid #a0c4d1;
-        padding-bottom: 8px;
-        margin-bottom: 15px;
-        font-size: 24px;
-    }
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgba(234,240,235,0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+section h2 {
+    color: #3a7d44;
+    border-bottom: 3px solid #a0c4d1;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 26px;
+}
 
-    p, li {
-        font-size: 16px;
-    }
+/* Текст */
+p, li {
+    font-size: 16px;
+}
+ul { padding-left: 20px; }
 
-    ul {
-        padding-left: 20px;
-    }
+.examples-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.example {
+    flex: 1 1 300px;
+    max-width: 350px;
+    background-color: #ffffffcc;
+    padding: 20px;
+    border-left: 6px solid #3a7d44;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.example:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
 
-    .examples-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
+/* QR код */
+.qr-code img {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
 
-    .example {
-        flex: 1 1 300px;
-        max-width: 320px;
-        background-color: #ffffffcc;
-        padding: 15px;
-        border-left: 5px solid #3a7d44;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .example:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .example img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 10px 0;
-        display: block;
-    }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #d9e8f5;
+    border-top: 3px solid #a0c4d1;
+}
 
-    footer {
-        text-align: center;
-        padding: 25px 15px;
-        background-color: #d9e8f5;
-        border-top: 3px solid #a0c4d1;
-    }
+/* Адаптивность */
+@media (max-width: 768px) {
+    header h1 { font-size: 26px; }
+    section h2 { font-size: 22px; }
+    .example { max-width: 100%; }
+}
 
-    .qr-code img {
-        width: 150px;
-        height: 150px;
-        margin-top: 10px;
-    }
+@media (max-width: 480px) {
+    header h1 { font-size: 22px; }
+    section { padding: 15px; }
+    p, li { font-size: 15px; }
+}
 
-    @media (max-width: 768px) {
-        header h1 { font-size: 24px; }
-        section h2 { font-size: 20px; }
-        .example { max-width: 100%; }
-    }
-
-    @media (max-width: 480px) {
-        header h1 { font-size: 20px; }
-        section { padding: 12px; }
-        p, li { font-size: 15px; }
-    }
+/* Плавное появление при скролле */
+.fade-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+.fade-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 </head>
 <body>
@@ -123,46 +136,44 @@
 </header>
 
 <main>
-
-<section>
+<section class="fade-scroll">
     <h2>Կոռոզիայի պատմությունը</h2>
     <p>Կոռոզիան գիտական ուսումնասիրության առարկա է դարձել դեռևս 18-րդ դարում: Գիտնականները նկատեցին, որ մետաղները ժամանակի ընթացքում փոխում են իրենց արտաքին տեսքը, հատկապես երկաթն ու պղինձը, որոնք լայնորեն օգտագործվում էին շինարարության և արդյունաբերության մեջ:</p>
     <p>19-րդ դարում սկսեցին դիտարկել մթնոլորտային ազդեցությունը՝ խոնավություն, աղեր և թթուներ, և մշակվեց առաջին պաշտպանիչ միջոցները՝ ներկեր, օղակներ, ծածկույթներ:</p>
     <p>20-րդ դարում գիտնականները սկսեցին լաբորատոր փորձեր իրականացնել՝ հասկանալու համար, թե ինչպես տարբեր պայմաններում արագանում է կոռոզիան: Պարզվեց, որ որոշ օքսիդներ կարող են լինել պաշտպանիչ՝ օրինակ պղնձի պատինան և ալյումինի օքսիդային շերտը:</p>
-    <p>Այսօր կոռոզիայի ուսումնասիրությունը կիրառվում է արդյունաբերության, շինարարության, տրանսպորտի, նավաշինության, էներգետիկայի և արվեստի պահպանման ոլորտներում:</p>
+    <p>Արդյունաբերության և տեխնոլոգիաների զարգացման հետ կոռոզիայի վերահսկումը դարձել է կարևոր ոլորտ: Ներկայումս կոռոզիայի ուսումնասիրությունը կիրառվում է արդյունաբերության, տրանսպորտի, նավաշինության, էներգետիկայի և արվեստի պահպանման ոլորտներում:</p>
 </section>
 
-<section>
+<section class="fade-scroll">
     <h2>Կոռոզիայի օրինակներ</h2>
     <div class="examples-container">
         <div class="example">
             <h3>Երկաթ և պողպատ</h3>
-            <p>Երկաթը հեշտությամբ օքսիդանում է՝ առաջացնելով ժանգ:</p>
-            <img src="images/rust-4832919_1280.jpg" alt="Ժանգ երկաթի վրա">
+            <p>Երկաթը հեշտությամբ օքսիդանում է՝ առաջացնելով ժանգ: (պատկերներ կարելի է ավելացնել հետագայում)</p>
         </div>
         <div class="example">
             <h3>Պղինձ</h3>
             <p>Պղինձը կանաչավուն պատինա է ստեղծում, որը պաշտպանում է մետաղը հետագա վնասից:</p>
-            <img src="images/copper-patina-abstract-stockcake.jpg" alt="Պղնձի պատինա">
         </div>
         <div class="example">
             <h3>Ալյումին</h3>
             <p>Ալյումինը արագ օքսիդանում է, բայց օքսիդային շերտը պաշտպանում է մետաղը հետագա կոռոզիայից:</p>
-            <img src="images/Aluminium_oxide2.jpg" alt="Ալյումինի օքսիդ">
         </div>
     </div>
 </section>
 
-<section>
+<section class="fade-scroll">
     <h2>Գիտական փաստեր</h2>
     <ul>
         <li>Կոռոզիան նյութի քայքայման բնական գործընթաց է՝ մթնոլորտի և ջրի հետ փոխազդեցության հետևանքով:</li>
         <li>Օքսիդները պաշտպանում են մետաղը հետագա վնասից՝ օրինակ պղնձի պատինան կամ ալյումինի օքսիդային շերտը:</li>
         <li>Գիտնականները օգտագործում են կոռոզիոն փորձեր՝ նյութերի պահպանման և նոր հակակոռոզիոն նյութերի մշակման համար:</li>
+        <li>Բազմաթիվ արդյունաբերություններ ներդնում են նոր նյութեր և ծածկույթներ կոռոզիայից պաշտպանվելու համար:</li>
+        <li>Կոռոզիայի կանխարգելումը ունի մեծ տնտեսական նշանակություն և անվտանգային կարևորություն:</li>
     </ul>
 </section>
 
-<section class="qr-code">
+<section class="fade-scroll qr-code">
     <h2>QR կոդ</h2>
     <p>Սկանավորեք QR կոդը՝ այցելելու համար կայք:</p>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://braxaep-jpg.github.io/metal-corrosion/" alt="QR Code">
@@ -173,6 +184,19 @@
 <footer>
     <p>&copy; 2025 Մետաղների Կոռոզիա</p>
 </footer>
+
+<script>
+// Плавное появление секций при скролле
+const faders = document.querySelectorAll('.fade-scroll');
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50){
+            el.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
