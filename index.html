@@ -1,137 +1,173 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Մետաղների Կոռոզիա</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f0f4f8;
-        color: #333;
-        line-height: 1.6;
-    }
-    header {
-        background-color: #d9e8f5;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 2px solid #a0c4d1;
-    }
-    header h1 {
-        margin: 0;
-        color: #2e5c6e;
-    }
-    main {
-        max-width: 900px;
-        margin: 20px auto;
-        padding: 0 15px;
-    }
-    section {
-        margin-bottom: 40px;
-    }
-    section h2 {
-        color: #3a7d44;
-        border-bottom: 2px solid #a0c4d1;
-        padding-bottom: 5px;
-    }
-    img {
-        max-width: 100%;
-        display: block;
-        margin: 15px 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .example {
-        background-color: #eaf0eb;
-        padding: 15px;
-        border-left: 5px solid #3a7d44;
-        margin: 10px 0;
-        border-radius: 5px;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #d9e8f5;
-        border-top: 2px solid #a0c4d1;
-    }
-    @media (max-width: 600px) {
-        header h1 {
-            font-size: 22px;
-        }
-        section h2 {
-            font-size: 18px;
-        }
-    }
-</style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Մետաղների կոռոզիա — պրեզենտացիա</title>
+<meta name="theme-color" content="#d9e8f5">
+<link rel="stylesheet" href="style.css">
+
+<!-- Google font (облегчённый, надежный CDN) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Մետաղների Կոռոզիա</h1>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <!-- Простая SVG-эмблема лаборатории -->
+      <svg width="46" height="46" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9ec5b8"/><stop offset="1" stop-color="#6c8f72"/></linearGradient></defs>
+        <path fill="url(#g1)" d="M6 2v2h1v3.586l3.707 3.707A3 3 0 0 1 14 13.414V19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-5.586a3 3 0 0 1 .293-1.293L8 7.586V4h1V2z"/>
+      </svg>
+      <div>
+        <h1 class="site-title">Մետաղների կոռոզիա</h1>
+        <p class="site-sub">Կարճ կենտրոնացված ներկայացում՝ պատմություն, օրինակներ և փաստեր</p>
+      </div>
+    </div>
+
+    <nav class="top-actions">
+      <a class="btn ghost" href="#examples">Առաջին օրինակներ</a>
+      <a class="btn" href="#history">Պատմություն</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-    <section>
-        <h2>Կոռոզիայի պատմությունը</h2>
-        <p>
-            Կոռոզիայի ուսումնասիրությունը սկսել է դեռևս 18-րդ դարում, երբ գիտնականները նկատեցին, որ մետաղները ժամանակի ընթացքում փոխում են իրենց արտաքին տեսքը և հատկությունները: Սկզբում ուշադրությունը կենտրոնացած էր հիմնականում երկաթի և պղնձի վրա, քանի որ այդ մետաղները լայնորեն օգտագործվում էին շինարարության և արդյունաբերության մեջ:
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h2>Քանի տեսակի է կոռոզիան և ինչպիսի վտանգներ է ստեղծում</h2>
+        <p class="lead">
+          Մանրամասներ՝ ժանգից մինչև պատինա. այստեղ կգտնես պատմություն, աշխատող օրինակներ և գիտական փաստեր՝ հայերենով, պատրաստ՝ պրեզենտացիայի համար։
         </p>
-        <p>
-            19-րդ դարում փորձագետները սկսեցին դիտարկել մետաղների քայքայումը տարբեր միջավայրերում, և հասկացան, որ օդի խոնավությունը, ջուրը, աղերը և կեղտոտված միջավայրը մեծացնում են կոռոզիայի արագությունը: Այս ժամանակահատվածում հայտնաբերվեցին առաջին պաշտպանիչ միջոցները՝ ներկերը, օղակները և մետաղների հատուկ ծածկույթները:
-        </p>
-        <p>
-            20-րդ դարի սկզբին սկսվեց գիտական մոտեցումը կոռոզիայի ուսումնասիրությանը: Գիտնականները իրականացնում էին լաբորատոր փորձեր՝ տարբեր մթնոլորտներ, թթուներ և աղային լուծույթներ օգտագործելով՝ հասկանալու համար, թե ինչպես արագանում է կոռոզիան: Պարզվեց, որ որոշ օքսիդներ կարող են լինել պաշտպանիչ՝ օրինակ՝ պղնձի պատինան և ալյումինի օքսիդային շերտը:
-        </p>
-        <p>
-            Երկրորդ համաշխարհային պատերազմից հետո, արդյունաբերության և տեխնոլոգիաների զարգացման հետ, կոռոզիայի վերահսկման գիտությունը ձեռք բերեց մեծ նշանակություն: Պատերազմի ժամանակ ռազմաարդյունաբերության մեջ մետաղների խոնավության և քայքայման հետևանքով առաջացած կորուստները ստիպեցին զարգացնել նոր հակակոռոզիոն նյութեր և տեխնոլոգիաներ:
-        </p>
-        <p>
-            Այսօր կոռոզիայի ուսումնասիրությունը կիրառվում է արդյունաբերության, շինարարության, տրանսպորտի, նավաշինության, էներգետիկայի և արվեստի պահպանման ոլորտներում: Գիտնականները օգտագործում են չվնասվող փորձարկումներ, լաբորատոր մոդելներ և առաջադեմ խոնավության ու ջերմաստիճանի վերահսկողություն՝ հասկանալու համար, թե ինչպես կանխարգելել մետաղների քայքայումը:
-        </p>
-    </section>
-
-    <section>
-        <h2>Կոռոզիայի օրինակներ</h2>
-
-        <div class="example">
-            <h3>Երկաթ և պողպատ</h3>
-            <p>Երկաթը հեշտությամբ օքսիդանում է՝ առաջացնելով ժանգ:</p>
-            <img src="images/rust-4832919_1280.jpg" alt="Ժանգ երկաթի վրա">
+        <div class="hero-cta">
+          <a href="#examples" class="btn large">Դիտարկել օրինակները</a>
+          <a href="#qr" class="btn ghost">Սքան փորձել</a>
         </div>
+      </div>
 
-        <div class="example">
-            <h3>Պղինձ</h3>
-            <p>Պղինձը կանաչավուն պատինա է ստեղծում, որը պաշտպանում է մետաղը հետագա վնասից:</p>
-            <img src="images/copper-patina-abstract-stockcake.jpg" alt="Պղնձի պատինա">
+      <figure class="hero-image" aria-hidden="true">
+        <!-- Декоративная крупная картинка (локальная) -->
+        <img src="images/rust-4832919_1280.jpg" alt="Ժանգ երկաթի վրա" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <section id="examples" class="container section grid-section">
+    <h2>Օրինակներ (տեսանել)</h2>
+
+    <div class="grid">
+      <article class="card" tabindex="0">
+        <div class="card-media">
+          <img src="images/rust-4832919_1280.jpg" alt="Ժանգած երկաթ">
         </div>
-
-        <div class="example">
-            <h3>Ալյումին</h3>
-            <p>Ալյումինը արագ օքսիդանում է, բայց օքսիդային շերտը պաշտպանում է մետաղը հետագա կոռոզիայից:</p>
-            <img src="images/Aluminium_oxide2.jpg" alt="Ալյումինի օքսիդ">
+        <div class="card-body">
+          <h3>Երկաթ / Պողպատ — ժանգ</h3>
+          <p>Երկաթի օքսիդացումը՝ Fe₂O₃·nH₂O, առաջանում է խոնավության եւ թթուների ներգործությամբ։ Զգալի ֆինանսական կորուստներ՝ ենթակառուցվածքներում։</p>
         </div>
-    </section>
+      </article>
 
-    <section>
-        <h2>Գիտական փաստեր</h2>
-        <ul>
-            <li>Կոռոզիան հանդիսանում է նյութի քայքայման բնական գործընթաց՝ մթնոլորտի և ջրի հետ փոխազդեցության հետևանքով։</li>
-            <li>Օքսիդները հաճախ պաշտպանում են մետաղը հետագա վնասից՝ օրինակ՝ պղնձի պատինան կամ ալյումինի օքսիդային շերտը։</li>
-            <li>Գիտնականները օգտագործում են կոռոզիոն փորձեր՝ նյութերի պահպանման և նոր հակակոռոզիոն նյութերի մշակման համար։</li>
-        </ul>
-    </section>
+      <article class="card" tabindex="0">
+        <div class="card-media">
+          <img src="images/copper-patina-abstract-stockcake.jpg" alt="Պղնձի պատինա">
+        </div>
+        <div class="card-body">
+          <h3>Պղինձ — պատինա</h3>
+          <p>Պղնձի կապույտ-կանաչ պատինան պաշտպանիչ լողան է՝ բնական թթվածնային օքսիդացիայի արդյունք։</p>
+        </div>
+      </article>
 
-    <section>
-        <h2>QR կոդ</h2>
-        <p>Սկանավորեք QR կոդը՝ այցելելու համար կայք:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://braxaep-jpg.github.io/metal-corrosion/" alt="QR Code">
-    </section>
+      <article class="card" tabindex="0">
+        <div class="card-media">
+          <img src="images/Aluminium_oxide2.jpg" alt="Ալյումինի օքսիդ">
+        </div>
+        <div class="card-body">
+          <h3>Ալյումին — ինքնապաշտպանիչ օքսիդ</h3>
+          <p>Ալյումինի վրա արագ ձևավորված օքսիդային շերտը դառնում է պաշտպանիչ և դանդաղեցնում է հետագա կոռոզիան։</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="history" class="container section history-section">
+    <h2>Փնջված պատմություն՝ հանգամանալից</h2>
+    <div class="prose">
+      <p><strong>18-րդ դար</strong> — առաջին դիտարկումները. արհեստավորներն ու երկրագործները նկատեցին, որ մետաղները փոխվում են՝ հատկապես երկաթը՝ արտահայտված ժանգով։</p>
+
+      <p><strong>19-րդ դար</strong> — փորձարկումներ ու պայմաններ. գիտնականները սկսեցին սահմանել ազդեցող գործոնները՝ խոնավություն, աղեր, աղտոտում։ Վեր հանվեցին առաջին պաշտպանիչ միջոցները՝ ներկեր և ծածկույթներ։</p>
+
+      <p><strong>20-րդ դարի սկիզբը</strong> — հայտնի դարձավ, որ որոշ օքսիդներ կարող են ծառայել որպես պաշտպանիչ շերտեր (պղնձի պատինա, ալյումինի օքսիդ), և սկսվեց կոռոզիայի կառուցվածքային վերլուծությունը լաբորատոր պայմաններում։</p>
+
+      <p><strong>Օդոնց 1940-1950-ականներ</strong> — արդյունաբերական աճը և պատերազմական ոլորտում նյութական կորուստները արագացրին հակակոռոզիոն տեխնոլոգիաների զարգացումը։</p>
+
+      <p><strong>Մոդեռն փուլ</strong> — այսօր կոռոզիայի ղեկավարման գիտությունն ընդգրկում է մոլեկուլային փորձարկումներ, նյութերի ինժեներիա, չվնասվող թեստավորում և ծայրահեղ հստակ կանխատեսման մոդելներ՝ ծառայելով նավաշինությանը, էներգետիկային և մշակութային ժառանգության պահպանմանը։</p>
+    </div>
+  </section>
+
+  <section class="container section facts-section">
+    <h2>Գիտական փաստեր՝ արագ</h2>
+    <div class="facts">
+      <div class="fact">
+        <strong>01</strong>
+        <p>Կոռոզիան հաճախ արագանում է հիմնականում presence աղերի և ցածր pH պայմաններում։</p>
+      </div>
+      <div class="fact">
+        <strong>02</strong>
+        <p>Պղնձի պատինան հաճախ պաշտպանում է այն, իսկ ռжавը՝ ոչ միշտ։</p>
+      </div>
+      <div class="fact">
+        <strong>03</strong>
+        <p>Ապրանքներն ու կառուցվածքները նախագծում են՝ հաշվի առնելով երկարաժամկետ կոռոզիոն ռիսկերը։</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="qr" class="container section qr-section">
+    <h2>QR-կոդ — բացիր ֆիզիկապես</h2>
+    <div class="qr-row">
+      <div class="qr-box">
+        <img id="qrImg" alt="QR կոդ՝ բացել կայքը" src="" width="200" height="200">
+        <p class="hint">Սկանավորեք այս կոդը հեռախոսի միջոցով՝ բացելու համար այս էջը</p>
+      </div>
+
+      <div class="download">
+        <p>Եթե ուզում եք տպել՝ աջ կոճակ → Պահպանել պատկերը։</p>
+        <p class="muted">QR կոդը գեներացվում է ավտոմատ՝ հիմնվելով այս էջի URL-ի վրա։</p>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer>
-    <p>&copy; 2025 Մետաղների Կոռոզիա</p>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 — Մետաղների կոռոզիա · Պատրաստված՝ պրեզենտացիայի համար</p>
+  </div>
 </footer>
+
+<script>
+  // Генерируем QR-код через публичный сервис на основе текущего URL
+  (function(){
+    const qr = document.getElementById('qrImg');
+    const url = window.location.href || 'https://braxaep-jpg.github.io/metal-corrosion/';
+    const api = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
+    qr.src = api;
+    qr.alt = 'QR կոդ՝ ' + url;
+  })();
+
+  // Небольшая анимация: добавить класс visible при прокрутке (lazy fade-in)
+  document.addEventListener('DOMContentLoaded', ()=> {
+    const obs = new IntersectionObserver((items) => {
+      items.forEach(i=>{
+        if(i.isIntersecting) {
+          i.target.classList.add('reveal');
+          obs.unobserve(i.target);
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.card, .prose p, .facts .fact, .hero-image img').forEach(el => obs.observe(el));
+  });
+</script>
 
 </body>
 </html>
