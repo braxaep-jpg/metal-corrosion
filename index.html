@@ -1,260 +1,241 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Մետաղների Կոռոզիա</title>
-<style>
-    /* ======= ОБЩИЕ СТИЛИ ======= */
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(to bottom, #f0f4f8, #e0ebf2);
-        color: #333;
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
-    header {
-        background: linear-gradient(135deg, #d9e8f5, #bcd6e9);
-        padding: 30px 20px;
-        text-align: center;
-        border-bottom: 3px solid #a0c4d1;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    header h1 {
-        margin: 0;
-        color: #2e5c6e;
-        font-size: 2em;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-    main {
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 0 20px;
-    }
-    section {
-        margin-bottom: 50px;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 1s ease;
-    }
-    section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    section h2 {
-        color: #3a7d44;
-        border-bottom: 3px solid #a0c4d1;
-        padding-bottom: 8px;
-        margin-bottom: 20px;
-        font-size: 1.8em;
-    }
-    .history p {
-        margin-bottom: 15px;
-        font-size: 1em;
-    }
-    .metal-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .card {
-        background: linear-gradient(145deg, #eaf0eb, #d9e8f5);
-        flex: 1 1 300px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        cursor: pointer;
-    }
-    .card:hover {
-        transform: translateY(-5px) scale(1.03);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .card img {
-        width: 100%;
-        display: block;
-    }
-    .card-content {
-        padding: 15px;
-    }
-    .card-content h3 {
-        margin: 0 0 10px;
-        color: #2e5c6e;
-        font-size: 1.3em;
-    }
-    .card-content p {
-        margin: 0;
-        font-size: 0.95em;
-        color: #333;
-    }
-    .facts {
-        background: #f4faf6;
-        padding: 15px;
-        border-left: 6px solid #3a7d44;
-        border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    .collapsible {
-        background-color: #e0ebf2;
-        color: #333;
-        cursor: pointer;
-        padding: 12px 18px;
-        width: 100%;
-        border: none;
-        border-radius: 8px;
-        text-align: left;
-        outline: none;
-        font-size: 1em;
-        transition: background 0.3s;
-        margin-bottom: 10px;
-    }
-    .collapsible:hover {
-        background-color: #d0e0eb;
-    }
-    .content {
-        padding: 0 18px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-        background-color: #f4faf6;
-        border-radius: 0 0 8px 8px;
-        margin-bottom: 15px;
-    }
-    footer {
-        text-align: center;
-        padding: 25px;
-        background: linear-gradient(135deg, #d9e8f5, #bcd6e9);
-        border-top: 3px solid #a0c4d1;
-        margin-top: 40px;
-        font-size: 0.9em;
-    }
-    /* ======= АДАПТИВ ======= */
-    @media (max-width: 768px) {
-        .metal-cards {
-            flex-direction: column;
-        }
-        header h1 {
-            font-size: 1.6em;
-        }
-        section h2 {
-            font-size: 1.4em;
-        }
-    }
-</style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Մետաղների Կոռոզիա — Պրեզենտացիա</title>
+<meta name="theme-color" content="#d9e8f5">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Մետաղների Կոռոզիա</h1>
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="logo" width="46" height="46" viewBox="0 0 24 24" aria-hidden="true">
+        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9ec5b8"/><stop offset="1" stop-color="#6c8f72"/></linearGradient></defs>
+        <path fill="url(#g1)" d="M6 2v2h1v3.586l3.707 3.707A3 3 0 0 1 14 13.414V19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-5.586a3 3 0 0 1 .293-1.293L8 7.586V4h1V2z"/>
+      </svg>
+      <div>
+        <h1 class="title">Մետաղների կոռոզիա</h1>
+        <p class="subtitle">Պատմություն, օրինակներ և գիտական փաստեր — պատրաստված պրեզենտացիայի համար</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#history" class="nav-link">Պատմություն</a>
+      <a href="#examples" class="nav-link">Օրինակներ</a>
+      <a href="#facts" class="nav-link">Փաստեր</a>
+      <a href="#qr" class="nav-link">QR</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-    <!-- ===== История ===== -->
-    <section class="history">
-        <h2>Կոռոզիայի պատմությունը</h2>
-        <p>
-            Կոռոզիայի ուսումնասիրությունը սկսվեց դեռևս 18-րդ դարում, երբ գիտնականները նկատեցին, որ մետաղները ժամանակի ընթացքում փոխում են արտաքին տեսքը և հատկությունները: Սկզբում ուշադրությունը կենտրոնացած էր երկաթի և պղնձի վրա, որոնք լայնորեն օգտագործվում էին շինարարությունում:
-        </p>
-        <p>
-            19-րդ դարում փորձագետները ուսումնասիրեցին մետաղների քայքայումը տարբեր միջավայրերում՝ նկատելով, որ խոնավությունը, աղերը և կեղտոտված օդը արագացնում են կոռոզիան: Այդ ժամանակ հայտնաբերեցին առաջին պաշտպանիչ միջոցները՝ ներկեր, ծածկույթներ և մետաղների հատուկ շերտեր:
-        </p>
-        <p>
-            20-րդ դարի սկզբին գիտնականները իրականացնում էին լաբորատոր փորձեր՝ հասկանալու համար՝ ինչպես տարբեր մթնոլորտներ և քիմիական լուծույթներ ազդում են կոռոզիայի վրա: Պարզվեց, որ որոշ օքսիդներ կարող են լինել պաշտպանիչ՝ օրինակ պղնձի կանաչ պատինան և ալյումինի օքսիդային շերտը:
-        </p>
-        <p>
-            <strong>Հետաքրքիր պատմական դեպքեր</strong>: 19-րդ դարում Նյու Յորքի երկաթուղային կամուրջները մասնակիորեն կործանվեցին արագ տարածված ժանգի պատճառով: Երկրորդ համաշխարհային պատերազմի ժամանակ նավերի մետաղները կոռոզացան խոնավության և աղային միջավայրի ազդեցությամբ, ինչը մեծ վնաս հասցրեց ռազմաարդյունաբերությանը:
-        </p>
-        <p>
-            Այսօր կոռոզիայի ուսումնասիրությունը կիրառվում է արդյունաբերության, տրանսպորտի, նավաշինության, էներգետիկայի և արվեստի պահպանման ոլորտներում:
-        </p>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h2>Ի՞նչ է կոռոզիան և ինչո՞ւ է դա տվյալ խնդիր</h2>
+        <p class="lead">Կարճ, գիտական և մատչելի. այստեղ դուք կգտնեք ամբողջական ներկայացում՝ պատմությունից մինչև արդյունաբերական լուծումներ։</p>
+        <div class="cta-row">
+          <a href="#examples" class="btn">Դիտել օրինակները</a>
+          <a href="#history" class="btn ghost">Կարդալ պատմությունը</a>
+        </div>
+      </div>
 
-    <!-- ===== Карточки металлов ===== -->
-    <section class="metal-cards-section">
-        <h2>Կոռոզիայի օրինակներ</h2>
-        <div class="metal-cards">
-            <div class="card">
-                <img src="images/iron.jpg" alt="Երկաթ">
-                <div class="card-content">
-                    <h3>Երկաթ և պողպատ</h3>
-                    <p>Երկաթը հեշտությամբ օքսիդանում է՝ առաջացնելով ժանգ:</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/copper.jpg" alt="Պղինձ">
-                <div class="card-content">
-                    <h3>Պղինձ</h3>
-                    <p>Պղինձը կանաչավուն պատինա է ստեղծում, որը պաշտպանում է մետաղը հետագա վնասից:</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="images/aluminium.jpg" alt="Ալյումին">
-                <div class="card-content">
-                    <h3>Ալյումին</h3>
-                    <p>Ալյումինը արագ օքսիդանում է, բայց օքսիդային շերտը պաշտպանում է մետաղը հետագա կոռոզիայից:</p>
-                </div>
-            </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- декоративный блок с текстурой -->
+        <div class="metal-surface">
+          <div class="rust-stain"></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== Интерактивные факты ===== -->
-    <section>
-        <h2>Գիտական փաստեր և հետաքրքիր դեպքեր</h2>
-        <button class="collapsible">Կոռոզիայի բնական գործընթաց</button>
-        <div class="content">
-            <p>Կոռոզիան նյութի քայքայման բնական գործընթաց է՝ մթնոլորտի և ջրի հետ փոխազդեցության հետևանքով:</p>
-        </div>
-        <button class="collapsible">Օքսիդների պաշտպանիչ դեր</button>
-        <div class="content">
-            <p>Օքսիդները հաճախ պաշտպանում են մետաղը հետագա վնասից՝ օրինակ՝ պղնձի պատինան կամ ալյումինի օքսիդային շերտը:</p>
-        </div>
-        <button class="collapsible">Պատմական ազդեցություն</button>
-        <div class="content">
-            <p>19-րդ դարում Նյու Յորքի կամուրջները մասնակիորեն կործանվեցին կոռոզիայի պատճառով: Երկրորդ համաշխարհային պատերազմի ժամանակ նավերի մետաղները կոռոզացան խոնավության և աղային միջավայրի ազդեցությամբ:</p>
-        </div>
-    </section>
+  <!-- History -->
+  <section id="history" class="panel">
+    <div class="wrap">
+      <h2>Մեծ, բայց մատչելի պատմագիր</h2>
 
-    <!-- ===== QR код ===== -->
-    <section>
-        <h2>QR կոդ</h2>
-        <p>Սկանավորեք QR կոդը՝ այցելելու համար կայք:</p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://braxaep-jpg.github.io/metal-corrosion/" alt="QR Code">
-    </section>
+      <article class="prose">
+        <p><strong>Ծագում։</strong> Կոռոզիայի առաջին նկատումները կարող ենք հետադարձել 18-րդ դար. արհեստավորները և ճանապարհաշինողները նկատեցին, որ երկաթե պոչերը, շինություններն ու փոքր սարքավորումները փոխում են տեսքը՝ երբ ուղարկվում են բաց տարածքներ:</p>
+
+        <p><strong>19-րդ դար․</strong> գիտնականները սկսեցին կանոնավորացնել փորձերը — պարզվեց, որ խոնավությունը, աղերը և քիմիական պոչերը (pollutants) արագացնում են կոռոզիան: Առաջացան առաջին պաշտպանիչ լուծումները՝ ներկեր ու ծածկույթներ։</p>
+
+        <p><strong>20-րդ դար․</strong> լաբորատոր մեթոդները մնայուն մոտեցում ապահովեցին. պարզվեց, որ որոշ օքսիդներ իրականում պաշտպանում են մետաղը (օրինակ՝ պղնձի պատինան կամ ալյումինի օքսիդը): արդյունաբերական կորուստները քննադատական ուշադրություն հրահրեցին՝ նոր նյութերի և տեխնոլոգիաների համար։</p>
+
+        <p><strong>Հետաքրքիր պատմական դեպքեր</strong>՝
+        <ul>
+          <li><strong>Մեծ Բալթիկ նավեր (20-րդ դար)</strong> — աղոտ ու խոնավ նավային պայմանները արագացնում էին նավերի արագ քայքայումը՝ ստիպելով ներդնել նոր հակակոռոզիոն ծածկույթներ։</li>
+          <li><strong>Ամերիկյան երկաթուղային կամուրջների խափանումը (19-րդ դար)</strong> — անվերջանալի ռեսուրսներ հատկացվեցին, երբ պարզվեց, որ կրիտիկական մասերը մասամբ կորուստներ են կրում քայքայման պատճառով։</li>
+          <li><strong>Ռուսաստան/Ինդուստրիալ օբյեկտներ</strong> — արդյունաբերական արտանետումները, որոնք պարունակում էին ծծումբային ածխաթթու, խթանում էին մթնոլորտային կոռոզիան անսպասելի մասերում։</li>
+        </ul>
+        </p>
+
+        <p>Այսօր կոռոզիայի հետազոտությունը միավորում է նյութաագիտություն, հաշվային մոդելներ և դաշտային փորձարկումներ՝ նվազեցնելու ցածր և բարձր ռիսկեր ամենատարբեր ոլորտներում։</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section id="examples" class="panel">
+    <div class="wrap">
+      <h2>Օրինակներ և վիզուալ ուսուցում</h2>
+      <p class="muted">Սակայն եթե նկարները չչկա՝ տեսեք ճիշտ ձևով պատրաստված քարտերը — ամենից գլխավորը՝ բովանդակությունը և նկարագրությունը</p>
+
+      <div class="cards">
+        <article class="card" data-type="iron">
+          <div class="card-media">
+            <img src="images/iron.jpg" alt="Ժանգած երկաթ" onerror="this.style.opacity=.12; this.nextElementSibling.classList.add('show-fallback');">
+            <div class="fallback show-fallback">Երկաթ — նկարը բացակայում է, սակայն բովանդակությունը պահպանվում է</div>
+            <div class="shine"></div>
+          </div>
+          <div class="card-body">
+            <h3>Երկաթ / պողպատ</h3>
+            <p>Երկաթը հեշտությամբ օքսիդանում է և ձևավորում է Fe₂O₃ (ժանգ), որը թուլացնում է կոնստրուկցիաները՝ առանց համապատասխան պաշտպանության։</p>
+            <button class="more-btn" aria-expanded="false">Մանրամասները</button>
+            <div class="more" aria-hidden="true">
+              <p>Մասնավորապես՝ ծածկույթների (երկաթի որմնասարդ) բացակայությունը հանգեցնում է հետագա քայքայելին և ձգձգվող գործառնական ծախսերի։</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-type="copper">
+          <div class="card-media">
+            <img src="images/copper.jpg" alt="Պղնձի պատինա" onerror="this.style.opacity=.12; this.nextElementSibling.classList.add('show-fallback');">
+            <div class="fallback">Պղինձ — նկարը բացակայում է</div>
+            <div class="shine"></div>
+          </div>
+          <div class="card-body">
+            <h3>Պղինձ</h3>
+            <p>Պղինձը ժամանակի ընթացքում պատվում է կանաչավուն պատինայով (patina), որը հաճախ պաշտպանում է մետաղը:</p>
+            <button class="more-btn" aria-expanded="false">Մանրամասները</button>
+            <div class="more" aria-hidden="true">
+              <p>Պատինան բնական պաշտպանիչ շերտ է, բայց այն կարող է ազդել էլեկտրոդային կապերի վրա և փոխել դիմադրությունը կոնտակտային մակերեսներում։</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-type="aluminium">
+          <div class="card-media">
+            <img src="images/aluminium.jpg" alt="Ալյումինի օքսիդ" onerror="this.style.opacity=.12; this.nextElementSibling.classList.add('show-fallback');">
+            <div class="fallback">Ալյումին — նկարը բացակայում է</div>
+            <div class="shine"></div>
+          </div>
+          <div class="card-body">
+            <h3>Ալյումին</h3>
+            <p>Ալյումինը արագ ձևավորում է օքսիդային պաշտպանիչ շերտ, որը հաճախ կանգնեցնում է հետագա կոռոզիան:</p>
+            <button class="more-btn" aria-expanded="false">Մանրամասները</button>
+            <div class="more" aria-hidden="true">
+              <p>Անոդային պաշտպանություն և ալյումինիզացիոն ծածկույթները են այն մեթոդները, որոնք օգտագործվում են արդյունաբերությունում:</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts & Interactive -->
+  <section id="facts" class="panel">
+    <div class="wrap">
+      <h2>Գիտական փաստեր եւ կանխարգելում</h2>
+
+      <div class="facts-grid">
+        <div class="fact">
+          <h4>Մեխանիզմ</h4>
+          <p>Կոռոզիան հաճախ էլեկտրոդային գործընթաց է՝ այնտեղ որտեղ մեկ հատվածը գործում է որպես մասնակի անոդ եւ մյուսը որպես կաթոդ։</p>
+        </div>
+        <div class="fact">
+          <h4>Քարտեզում</h4>
+          <p>Խնդիրները հաճախ ավելի սուր են ծովի մոտ՝ բարձր աղային բեռնվածության պատճառով՝ հատուկ ուշադրություն նավահանգիստներում։</p>
+        </div>
+        <div class="fact">
+          <h4>Պիտի պահպանենք</h4>
+          <p>Հետազոտությունները ցույց են տալիս, որ ճիշտ ընտրված ծածկույթը երկարացնում է սարքի ժամկետը՝ մինչև 10-20 տարի՝ կախված միջավայրից:</p>
+        </div>
+      </div>
+
+      <div class="collapsible-list">
+        <button class="collapsible">Մանրամասն կերպով՝ էլեկտրոդային կոռոզիա</button>
+        <div class="content">
+          <p>Մետաղների տարբերություն որոշվում է նրանց էլեկտրոհիմիական պոտենցիալով. տարբեր մետաղների շփումից առաջանում է աղքատ կամ հարուստ էլեկտրոնային պայման՝ որը սկսում է օքսիդացիոն գործընթացը։</p>
+        </div>
+
+        <button class="collapsible">Գործնական կանխարգելում</button>
+        <div class="content">
+          <p>Պաշտպանությունը ներառում է ֆիզիկական բացակայություն (բազմաստիճան ծածկույթներ), կատվական ընտրություն և քիմիական կայունացում: Cathodic protection — հաճախ օգտագործվող մեթոդն է։</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR -->
+  <section id="qr" class="panel">
+    <div class="wrap">
+      <h2>QR կոդ (սկանավորեք)</h2>
+      <div class="qr-row">
+        <div class="qr-box">
+          <img id="qrImg" src="" alt="QR-ի պատկեր" width="220" height="220">
+          <p class="hint">Սկանավորեք սմարթֆոնով՝ բացելու համար այս կայքը</p>
+        </div>
+        <div class="qr-text">
+          <p>QR կոդը կառուցված է այս site's URL-ի վրա։ Կարող եք պահպանել պատկերն և տպել։</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer>
-    <p>&copy; 2025 Մետաղների Կոռոզիա</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2025 Մետաղների կոռոզիա — Պատրաստված պրեզենտացիայի համար</p>
+  </div>
 </footer>
 
+<!-- SCRIPT -->
 <script>
-    // ===== Появление секций при скролле =====
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
+/* Intersection Observer для плавного появления секций */
+const els = document.querySelectorAll('section.panel, .hero');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold: 0.18});
+els.forEach(el => io.observe(el));
 
-    // ===== Collapsible =====
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach(btn => {
-        btn.addEventListener("click", function() {
-            this.classList.toggle("active");
-            const content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
+/* Collapsible "more" buttons in cards */
+document.querySelectorAll('.more-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const parent = btn.parentElement;
+    const more = parent.querySelector('.more');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if(!expanded){
+      more.style.maxHeight = more.scrollHeight + 'px';
+      more.setAttribute('aria-hidden', 'false');
+    } else {
+      more.style.maxHeight = null;
+      more.setAttribute('aria-hidden', 'true');
+    }
+  });
+});
+
+/* Collapsible list */
+document.querySelectorAll('.collapsible').forEach(b=>{
+  b.addEventListener('click', function(){
+    this.classList.toggle('active');
+    const c = this.nextElementSibling;
+    if(c.style.maxHeight) { c.style.maxHeight = null; } else { c.style.maxHeight = c.scrollHeight + 'px'; }
+  });
+});
+
+/* QR code generation (оставляем прежний сервис) */
+(function(){
+  const qr = document.getElementById('qrImg');
+  const url = window.location.href || 'https://braxaep-jpg.github.io/metal-corrosion/';
+  qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
+})();
 </script>
 
 </body>
