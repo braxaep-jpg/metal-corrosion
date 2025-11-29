@@ -1,31 +1,432 @@
 <!DOCTYPE html>
 <html lang="hy">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Մետաղների Կոռոզիա — Գիտական Պրեզենտացիա</title>
-<meta name="description" content="Ամբողջական ներկայացում մետաղների կոռոզիայի, դրա տեսակների, պատմության և կանխարգելման մեթոդների մասին։" />
-<meta name="theme-color" content="#3a514d"> <link rel="stylesheet" href="style.css"> 
-<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Մետաղների Կոռոզիա — Գիտական Պրեզենտացիա</title>
+    <meta name="description" content="Ամբողջական ներկայացում մետաղների կոռոզիայի, դրա տեսակների, պատմության և կանխարգելման մեթոդների մասին։" />
+    <meta name="theme-color" content="#3a514d">
+    <style>
+        /* ====================================================== */
+        /* 1. Global Reset & Variables */
+        /* ====================================================== */
+        :root {
+            --color-primary: #3a514d;    /* Dark Teal/Metal */
+            --color-secondary: #ff7f50;  /* Rust/Accent */
+            --color-background: #f0f4f7;
+            --color-text: #333333;
+            --color-light-text: #ffffff;
+            --color-border: #cccccc;
+            --color-shadow: rgba(0, 0, 0, 0.1);
+            --spacing-unit: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            scroll-behavior: smooth;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+        
+        /* Utility */
+        .muted { opacity: 0.7; }
+        .prose { max-width: 800px; }
+        .prose p { margin-bottom: 1rem; }
+        .prose ul { margin-left: 2rem; margin-bottom: 1rem; }
+        .prose strong { color: var(--color-secondary); }
+
+        /* ====================================================== */
+        /* 2. Header and Navigation */
+        /* ====================================================== */
+        .site-header {
+            background-color: var(--color-primary);
+            padding: 1rem 0;
+            color: var(--color-light-text);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .site-header .wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo { margin-right: 1rem; }
+        .title { font-size: 1.8rem; margin-bottom: 0.1rem; }
+        .subtitle { font-size: 0.8rem; opacity: 0.8; }
+
+        .nav a {
+            color: var(--color-light-text);
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin-left: 0.5rem;
+            transition: background-color 0.3s;
+            border-radius: 4px;
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ====================================================== */
+        /* 3. Hero Section */
+        /* ====================================================== */
+        .hero {
+            background-color: #e2e8f0;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-row .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, opacity 0.2s;
+            margin-right: 1rem;
+        }
+
+        .btn {
+            background-color: var(--color-secondary);
+            color: var(--color-light-text);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn.ghost {
+            background-color: transparent;
+            color: var(--color-secondary);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Hero Art (Rust visualization) */
+        .hero-art {
+            position: relative;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .metal-surface {
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(135deg, #a9a9a9, #708090);
+            border-radius: 8px;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .rust-stain {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle at center, rgba(165, 42, 42, 0.6) 0%, rgba(139, 69, 19, 0.8) 50%, transparent 100%);
+            border-radius: 50%;
+            opacity: 0.7;
+            filter: blur(10px);
+        }
+
+        /* ====================================================== */
+        /* 4. General Panels & Scroll Animation */
+        /* ====================================================== */
+        section.panel {
+            padding: 4rem 0;
+            opacity: 0;
+            transition: opacity 1s, transform 1s;
+            transform: translateY(20px);
+        }
+
+        section.panel.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        /* ====================================================== */
+        /* 5. Cards & Examples (Image Fallback) */
+        /* ====================================================== */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+        }
+
+        .card {
+            background-color: var(--color-light-text);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--color-shadow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-media {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .card-media img.hide {
+            display: none; /* Скрываем не загрузившееся изображение */
+        }
+
+        .fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+            color: #888;
+            font-style: italic;
+            padding: 10px;
+            text-align: center;
+            /* JS показывает элемент, если img.onerror */
+            opacity: 0; 
+            transition: opacity 0.3s;
+        }
+        
+        .fallback.show {
+            opacity: 1;
+        }
+
+
+        .card-body {
+            padding: var(--spacing-unit);
+            flex-grow: 1;
+        }
+
+        .card-body h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .more-btn {
+            background-color: var(--color-primary);
+            color: var(--color-light-text);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.2s;
+            font-weight: 600;
+        }
+
+        .more-btn:hover { background-color: #2c3e50; }
+
+        .more {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            padding-top: 0.5rem;
+        }
+
+        /* ====================================================== */
+        /* 6. Facts Grid & Collapsible */
+        /* ====================================================== */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+            margin-bottom: 2rem;
+        }
+
+        .fact {
+            background-color: #fff;
+            padding: var(--spacing-unit);
+            border-left: 5px solid var(--color-secondary);
+            box-shadow: 0 2px 5px var(--color-shadow);
+            border-radius: 4px;
+        }
+
+        .fact h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .collapsible {
+            background-color: var(--color-primary);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: background-color 0.4s;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+
+        .collapsible:hover, .collapsible.active { background-color: #2c3e50; }
+
+        .collapsible::after {
+            content: '+';
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .collapsible.active::after { content: "-"; }
+
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: #f1f1f1;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .content p { padding: 1rem 0; }
+
+        /* ====================================================== */
+        /* 7. QR Section & Footer */
+        /* ====================================================== */
+        .qr-row {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            background-color: var(--color-light-text);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--color-shadow);
+            margin-top: 2rem;
+        }
+
+        .qr-box { text-align: center; }
+
+        .qr-box img {
+            display: block;
+            margin: 0 auto 0.5rem;
+            width: 220px;
+            height: 220px;
+        }
+
+        .hint { font-size: 0.9rem; color: #666; }
+
+        .qr-text { max-width: 400px; }
+
+        .site-footer {
+            background-color: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* ====================================================== */
+        /* 8. Responsive Design (Media Queries) */
+        /* ====================================================== */
+
+        @media (max-width: 900px) {
+            .site-header .wrap { flex-direction: column; text-align: center; }
+            .nav { margin-top: 1rem; }
+            .nav a { display: block; margin: 0.5rem 0.2rem; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-art { height: 180px; margin-top: 2rem; }
+            .qr-row { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h2 { font-size: 2rem; }
+            .cta-row { display: flex; flex-direction: column; }
+            .cta-row .btn { margin: 0.5rem 0; width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="wrap">
     <div class="brand">
-            <svg class="logo" width="46" height="46" viewBox="0 0 24 24" aria-hidden="true">
+      <svg class="logo" width="46" height="46" viewBox="0 0 24 24" aria-hidden="true">
         <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#9ec5b8"/><stop offset="1" stop-color="#6c8f72"/></linearGradient></defs>
         <path fill="url(#g1)" d="M6 2v2h1v3.586l3.707 3.707A3 3 0 0 1 14 13.414V19a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-5.586a3 3 0 0 1 .293-1.293L8 7.586V4h1V2z"/>
       </svg>
       <div>
         <h1 class="title">Մետաղների կոռոզիա</h1>
-                <p class="subtitle">Պատմություն, օրինակներ և գիտական փաստեր — Պրեզենտացիայի համար նախատեսված</p>
+        <p class="subtitle">Պատմություն, օրինակներ և գիտական փաստեր — Պրեզենտացիայի համար նախատեսված</p>
       </div>
     </div>
 
     <nav class="nav" aria-label="Գլխավոր նավիգացիա">
       <a href="#history" class="nav-link">Պատմություն</a>
-      <a href="#types" class="nav-link">Տեսակներ</a>       <a href="#examples" class="nav-link">Օրինակներ</a>
+      <a href="#types" class="nav-link">Տեսակներ</a>
+      <a href="#examples" class="nav-link">Օրինակներ</a>
       <a href="#facts" class="nav-link">Գիտություն</a>
     </nav>
   </div>
@@ -44,7 +445,7 @@
       </div>
 
       <div class="hero-art" aria-hidden="true">
-                <div class="metal-surface">
+        <div class="metal-surface">
           <div class="rust-stain"></div>
         </div>
       </div>
@@ -58,13 +459,13 @@
       <article class="prose">
         <p><strong>Ծագում։</strong> Կոռոզիայի առաջին նկատումները կարող ենք հետադարձել 18-րդ դար. արհեստավորները և ճանապարհաշինողները նկատեցին, որ երկաթե պոչերը, շինություններն ու փոքր սարքավորումները փոխում են տեսքը՝ երբ ուղարկվում են բաց տարածքներ:</p>
 
-                <p><strong>19-րդ դար․</strong> գիտնականները սկսեցին կանոնավորացնել փորձերը — պարզվեց, որ խոնավությունը, աղերը և քիմիական **աղտոտիչները** արագացնում են կոռոզիան: Առաջացան առաջին պաշտպանիչ լուծումները՝ ներկեր ու ծածկույթներ։</p>
+        <p><strong>19-րդ դար․</strong> գիտնականները սկսեցին կանոնավորացնել փորձերը — պարզվեց, որ խոնավությունը, աղերը և քիմիական **աղտոտիչները** արագացնում են կոռոզիան: Առաջացան առաջին պաշտպանիչ լուծումները՝ ներկեր ու ծածկույթներ։</p>
 
         <p><strong>20-րդ դար․</strong> լաբորատոր մեթոդները մնայուն մոտեցում ապահովեցին. պարզվեց, որ որոշ օքսիդներ իրականում պաշտպանում են մետաղը (օրինակ՝ պղնձի պատինան կամ ալյումինի օքսիդը): արդյունաբերական կորուստները քննադատական ուշադրություն հրահրեցին՝ նոր նյութերի և տեխնոլոգիաների համար։</p>
 
         <p><strong>Հետաքրքիր պատմական դեպքեր</strong>՝
         <ul>
-                    <li>**Բալթիկ ծովի մեծ նավեր (20-րդ դար)** — աղոտ ու խոնավ նավային պայմանները արագացնում էին նավերի արագ քայքայումը՝ ստիպելով ներդնել նոր հակակոռոզիոն ծածկույթներ։</li>
+          <li>**Բալթիկ ծովի մեծ նավեր (20-րդ դար)** — աղոտ ու խոնավ նավային պայմանները արագացնում էին նավերի արագ քայքայումը՝ ստիպելով ներդնել նոր հակակոռոզիոն ծածկույթներ։</li>
           <li>**Ամերիկյան երկաթուղային կամուրջների խափանումը (19-րդ դար)** — անվերջանալի ռեսուրսներ հատկացվեցին, երբ պարզվեց, որ կրիտիկական մասերը մասամբ կորուստներ են կրում քայքայման պատճառով։</li>
           <li>**Արդյունաբերական օբյեկտներ** — արդյունաբերական արտանետումները, որոնք պարունակում էին ծծումբային ածխաթթու, խթանում էին մթնոլորտային կոռոզիան անսպասելի մասերում։</li>
         </ul>
@@ -80,9 +481,8 @@
       <h2>Կոռոզիայի հիմնական տեսակները</h2>
       <p class="muted">Կոռոզիայի մեխանիզմները տարբեր են, սակայն հիմնականում առանձնացվում են երեք կամ չորս տեսակ:</p>
       
-      
-
-      <div class="facts-grid">         <div class="fact type-uniform">
+      <div class="facts-grid">
+        <div class="fact type-uniform">
           <h4>Հավասարաչափ (Uniform)</h4>
           <p>Մետաղի մակերեսի ամբողջական քայքայումը: Ամենատարածված տեսակն է, որը հեշտությամբ կանխարգելվում է պաշտպանիչ ծածկույթներով:</p>
         </div>
@@ -101,19 +501,19 @@
     <section id="examples" class="panel">
     <div class="wrap">
       <h2>Օրինակներ և վիզուալ ուսուցում</h2>
-            <p class="muted">Սակայն, եթե նկարները **բացակայում են**, տեսեք ճիշտ ձևով պատրաստված քարտերը — ամենից գլխավորը՝ բովանդակությունը և նկարագրությունը</p>
+      <p class="muted">Սակայն, եթե նկարները **բացակայում են**, տեսեք ճիշտ ձևով պատրաստված քարտերը — ամենից գլխավորը՝ բովանդակությունը և նկարագրությունը</p>
 
       <div class="cards">
         <article class="card" data-type="iron">
           <div class="card-media">
-                        <img src="images/iron.jpg" alt="Ժանգած երկաթ" onerror="this.classList.add('hide'); this.nextElementSibling.classList.add('show');">
+            <img src="images/iron.jpg" alt="Ժանգած երկաթ" onerror="this.classList.add('hide'); this.nextElementSibling.classList.add('show');">
             <div class="fallback">Երկաթ — նկարը բացակայում է</div>
             <div class="shine"></div>
           </div>
           <div class="card-body">
             <h3>Երկաթ / պողպատ</h3>
             <p>Երկաթը հեշտությամբ օքսիդանում է և ձևավորում է $Fe_2O_3$ (**ժանգ**), որը թուլացնում է կոնստրուկցիաները՝ առանց համապատասխան պաշտպանության։</p>
-                        <button class="more-btn" aria-expanded="false" aria-controls="more-iron">Մանրամասները</button>
+            <button class="more-btn" aria-expanded="false" aria-controls="more-iron">Մանրամասները</button>
             <div class="more" id="more-iron" aria-hidden="true">
               <p>Մասնավորապես՝ ծածկույթների (երկաթի որմնասարդ) բացակայությունը հանգեցնում է հետագա քայքայելին և ձգձգվող գործառնական ծախսերի։</p>
             </div>
@@ -175,12 +575,12 @@
       </div>
 
       <div class="collapsible-list">
-                <button class="collapsible" aria-expanded="false" aria-controls="content1">Մանրամասն կերպով՝ էլեկտրոդային կոռոզիա</button>
+        <button class="collapsible" aria-expanded="false" aria-controls="content1">Մանրամասն կերպով՝ էլեկտրոդային կոռոզիա</button>
         <div class="content" id="content1" aria-hidden="true">
           <p>Մետաղների տարբերություն որոշվում է նրանց էլեկտրոքիմիական պոտենցիալով. տարբեր մետաղների շփումից առաջանում է էլեկտրոնային պայման, որը սկսում է օքսիդացիոն գործընթացը։</p>
         </div>
 
-                        <button class="collapsible" aria-expanded="false" aria-controls="content2">Գործնական կանխարգելում</button>
+        <button class="collapsible" aria-expanded="false" aria-controls="content2">Գործնական կանխարգելում</button>
         <div class="content" id="content2" aria-hidden="true">
           <p>Պաշտպանությունը ներառում է ֆիզիկական մեկուսացում (բազմաստիճան ծածկույթներ), մետաղների ճիշտ ընտրություն և քիմիական կայունացում: **Կաթոդային Պաշտպանությունը** (Cathodic protection) հաճախ օգտագործվող մեթոդ է։</p>
         </div>
@@ -230,7 +630,6 @@ document.querySelectorAll('.more-btn').forEach(btn=>{
     more.setAttribute('aria-hidden', expanded);
 
     if(!expanded){
-      // Setting max-height dynamically for smooth transition
       more.style.maxHeight = more.scrollHeight + 'px';
     } else {
       more.style.maxHeight = null;
@@ -246,7 +645,7 @@ document.querySelectorAll('.collapsible').forEach(b=>{
     const expanded = this.getAttribute('aria-expanded') === 'true';
     
     this.setAttribute('aria-expanded', String(!expanded));
-    c.setAttribute('aria-hidden', expanded); // Toggle aria-hidden on content
+    c.setAttribute('aria-hidden', expanded); 
 
     if(c.style.maxHeight) { 
       c.style.maxHeight = null; 
@@ -259,8 +658,8 @@ document.querySelectorAll('.collapsible').forEach(b=>{
 /* QR code generation */
 document.addEventListener('DOMContentLoaded', () => {
     const qr = document.getElementById('qrImg');
-    // Using a placeholder URL since the actual site URL is unknown
-    const url = window.location.href || 'https://github.com/braxaep-jpg/metal-corrosion/'; 
+    // Используем window.location.href, если доступно, иначе - placeholder
+    const url = window.location.href || 'https://braxaep-jpg.github.io/metal-corrosion/'; 
     qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
 });
 </script>
