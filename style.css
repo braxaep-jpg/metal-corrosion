@@ -1,81 +1,397 @@
-/* Общие настройки */
+/* ----------------------------------------------------
+   BASE
+---------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #222;
-    background: #f5f5f5; /* светлый фон */
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f7f9fb;
+  color: #1d1f20;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-    background: #ffffff;
-    padding: 40px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* контейнер */
+.wrap {
+  width: min(1150px, 92%);
+  margin: 0 auto;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: #333;
+/* панель — секции включаются мягко */
+.panel {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+  padding: 80px 0;
 }
 
-/* Основной контейнер */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px 0;
+.panel.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Заголовки */
+/* ----------------------------------------------------
+   HEADER
+---------------------------------------------------- */
+.site-header {
+  background: #ffffffd8;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 1px;
+  font-size: 13px;
+  color: #6d757d;
+}
+
+.nav a {
+  margin-left: 22px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #2f353c;
+  font-weight: 500;
+  transition: color .2s;
+}
+
+.nav a:hover {
+  color: #3a6b4d;
+}
+
+/* ----------------------------------------------------
+   HERO
+---------------------------------------------------- */
+.hero {
+  padding: 100px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: .7s ease;
+}
+
+.hero.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-text h2 {
+  font-size: 40px;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.lead {
+  color: #4d565e;
+  font-size: 18px;
+}
+
+.cta-row {
+  margin-top: 25px;
+  display: flex;
+  gap: 14px;
+}
+
+.btn {
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 7px;
+  background: #3a6b4d;
+  color: #fff;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.btn:hover {
+  background: #2e533e;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: #3a6b4d;
+  border: 2px solid #3a6b4d;
+}
+
+.btn.ghost:hover {
+  background: #3a6b4d;
+  color: #fff;
+}
+
+/* декоративный блок */
+.metal-surface {
+  width: 100%;
+  height: 300px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #dfe6ea 0%, #cbd4d9 100%);
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.06);
+}
+
+/* ----------------------------------------------------
+   TEXT BLOCKS
+---------------------------------------------------- */
 h2 {
-    margin-top: 40px;
-    font-size: 28px;
-    color: #333;
-    border-left: 6px solid #1976d2;
-    padding-left: 15px;
+  font-size: 32px;
+  margin-bottom: 22px;
 }
 
-/* Обычный текст */
-p {
-    margin: 12px 0;
-    color: #444;
-    font-size: 17px;
+.prose p {
+  margin-bottom: 16px;
+  color: #3f454a;
 }
 
-/* Карточки */
+.prose ul {
+  padding-left: 22px;
+  color: #3f454a;
+}
+
+.muted {
+  color: #6c737a;
+}
+
+/* ----------------------------------------------------
+   CARDS (EXAMPLES)
+---------------------------------------------------- */
+.cards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
 .card {
-    background: #ffffff;
-    padding: 20px;
-    margin: 25px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    transition: 0.25s ease;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: .6s ease;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Изображения внутри карточек */
-.card img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    margin-top: 15px;
-    border-radius: 8px;
+.card-media {
+  position: relative;
+  background: #eef1f4;
+  height: 170px;
+  overflow: hidden;
 }
 
-/* Футер */
-footer {
-    background: #ffffff;
-    padding: 20px 0;
-    margin-top: 40px;
-    text-align: center;
-    color: #444;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+img.hide {
+  display: none;
+}
+
+.fallback {
+  display: none;
+  height: 100%;
+  background: #d4d7db;
+  color: #4a4f54;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px;
+}
+
+.fallback.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+  transform: translateX(-120%);
+  animation: shine 2.9s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-120%); }
+  60% { transform: translateX(120%); }
+  100% { transform: translateX(120%); }
+}
+
+.card-body {
+  padding: 18px 20px 22px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.more-btn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #e9ecef;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.more-btn:hover {
+  background: #d8dde1;
+}
+
+.more {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .45s ease;
+  margin-top: 10px;
+  color: #4d5257;
+}
+
+/* ----------------------------------------------------
+   FACTS
+---------------------------------------------------- */
+.facts-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 20px;
+}
+
+.fact {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.fact h4 {
+  margin-top: 0;
+}
+
+/* collapsible */
+.collapsible {
+  width: 100%;
+  background: #e9ecef;
+  padding: 12px 16px;
+  border: none;
+  margin-top: 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s;
+}
+
+.collapsible.active {
+  background: #d8dde1;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s ease;
+  background: #f1f3f5;
+  padding: 0 16px;
+  border-radius: 6px;
+}
+
+.content p {
+  margin: 14px 0;
+}
+
+/* ----------------------------------------------------
+   QR BLOCK
+---------------------------------------------------- */
+.qr-row {
+  margin-top: 30px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.hint {
+  margin-top: 10px;
+  color: #6c737a;
+}
+
+/* ----------------------------------------------------
+   FOOTER
+---------------------------------------------------- */
+.site-footer {
+  padding: 40px 0;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 60px;
+}
+
+.site-footer p {
+  text-align: center;
+  color: #6d757d;
+  margin: 0;
+}
+
+/* ----------------------------------------------------
+   MEDIA
+---------------------------------------------------- */
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text h2 {
+    font-size: 28px;
+  }
 }
