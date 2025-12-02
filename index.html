@@ -47,7 +47,6 @@
       </div>
 
       <div class="hero-art" aria-hidden="true">
-        <!-- декоративная текстура; будет использовать texture-metal.jpg, fallback — градиент -->
         <div class="metal-surface" role="img" aria-label="Metal surface decoration"></div>
       </div>
     </div>
@@ -108,7 +107,7 @@
         <!-- CARD: IRON -->
         <article class="card" data-type="iron">
           <div class="card-media">
-            <img src="images/iron.jpg" alt="Ժանգած երկաթ" onerror="handleImgError(this)">
+            <img src="Images/iron.jpg" alt="Ժանգած երկաթ" onerror="handleImgError(this)">
             <div class="fallback" aria-hidden="true">Երկաթ — նկարը բացակայում է</div>
             <div class="shine" aria-hidden="true"></div>
           </div>
@@ -125,7 +124,7 @@
         <!-- CARD: COPPER -->
         <article class="card" data-type="copper">
           <div class="card-media">
-            <img src="images/copper.jpg" alt="Պղնձի պատինա" onerror="handleImgError(this)">
+            <img src="Images/copper.jpg" alt="Պղնձի պատինա" onerror="handleImgError(this)">
             <div class="fallback" aria-hidden="true">Պղինձ — նկարը բացակայում է</div>
             <div class="shine" aria-hidden="true"></div>
           </div>
@@ -142,7 +141,7 @@
         <!-- CARD: ALUMINIUM -->
         <article class="card" data-type="aluminium">
           <div class="card-media">
-            <img src="images/aluminium.jpg" alt="Ալյումինի օքսիդ" onerror="handleImgError(this)">
+            <img src="Images/aluminium.jpg" alt="Ալյումինի օքսիդ" onerror="handleImgError(this)">
             <div class="fallback" aria-hidden="true">Ալյումին — նկարը բացակայում է</div>
             <div class="shine" aria-hidden="true"></div>
           </div>
@@ -217,9 +216,7 @@
   </div>
 </footer>
 
-<!-- SCRIPTS: progressive, accessible, robust -->
 <script>
-/* === helper: image error handler - shows fallback if image didn't load */
 function handleImgError(imgEl){
   try {
     imgEl.classList.add('hide');
@@ -228,7 +225,6 @@ function handleImgError(imgEl){
   } catch(e) { /* silent */ }
 }
 
-/* === IntersectionObserver: reveal panels smoothly */
 document.addEventListener('DOMContentLoaded', () => {
   const panels = document.querySelectorAll('section.panel, .hero');
   const io = new IntersectionObserver((entries) => {
@@ -238,7 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {threshold: 0.18});
   panels.forEach(p => io.observe(p));
 
-  /* === "more" buttons inside cards */
   document.querySelectorAll('.more-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('aria-controls');
@@ -255,7 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* === collapsible list (facts) */
   document.querySelectorAll('.collapsible').forEach(b => {
     b.addEventListener('click', function(){
       const id = this.getAttribute('aria-controls');
@@ -273,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* === QR code generation (keeps your existing service) */
   const qr = document.getElementById('qrImg');
   const url = window.location.href || 'https://braxaep-jpg.github.io/metal-corrosion/';
   qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(url);
